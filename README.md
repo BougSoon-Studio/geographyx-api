@@ -112,4 +112,7 @@ The SDK GeographyX is licensed under the MIT License.
 ## Contact
 
 You can contact us via email at `bougsoon.studio@gmail.com`.
+```txt
+Maded and powered by BougSoon Studio // https://bougsoon-studio.xyz.wf
+-- © BougSoon Studio 2023 - All rights reserved
 ```
