@@ -4,6 +4,26 @@
 
 GeographyX is a JavaScript API that enables you to retrieve detailed information about countries, access a complete list of world countries, retrieve country data based on information and obtain weather information for a country.
 
+## Integration
+
+To use our api, you must import the geographyx.js file via a script tag,
+example:
+```js
+     <script type="module">
+         import {
+             Auth,
+             getCountryInfo,
+             fetchCountryData,
+             getAllCountries,
+             whatCountry,
+             weatherCountry
+         } from "https://blonality-studio.000.pe/geographyx/v2/geographyx.js";
+
+        // rest of your script
+
+      </script>
+```
+
 ## Authentication
 
 To use the GeographyX API, you need to authenticate with a valid user UID and token. You can obtain a token from the official website: [Get Token](https://blonality-studio.000.pe/api/get-token)
@@ -118,7 +138,64 @@ Get weather information for a specific country.
     });
   }
   ```
-  
+
+## Example of complet code 
+```js
+<script type="module">
+         import {
+             Auth,
+             getCountryInfo,
+             fetchCountryData,
+             getAllCountries,
+             whatCountry,
+             weatherCountry
+         } from "https://blonality-studio.000.pe/geographyx/v2/geographyx.js";
+        
+         async function main() {
+             try {
+                 // Token verification
+                 const MyToken = await Auth("USER_UID", "USER_TOKEN");
+        
+                 // Useful information for each country =>
+                 const capital = await getCountryInfo('Switzerland', 'capital');
+                 // Show in console
+                 console.log(capital);
+        
+                 // All useful information for a country =>
+                 const info = await getCountryInfo('Switzerland');
+                 // Show in console
+                 console.log(info);
+        
+                 // All countries =>
+                 const allCountries = getAllCountries(await fetchCountryData());
+                 // Show in console
+                 console.log(allCountries);
+        
+                 // Country with a specific field value =>
+                 const WhichCountryIsIt = await whatCountry('continent', 'Europe');
+                 // Show in console
+                 console.log(WhichCountryIsIt);
+
+                 // Weather data for a country =>
+                 const weatherData = await weatherCountry('Switzerland');
+                 if (weatherData) {
+                     weatherData.forEach(weather => {
+                         console.log("Temperature:", weather.temperature);
+                         console.log("Description:", weather.description);
+                         console.log("Humidity:", weather.humidity);
+                         console.log("Pressure:", weather.pressure);
+                         console.log("Wind Speed:", weather.windSpeed);
+                     });
+                 }
+
+             } catch (error) {
+                 console.error(error.message);
+             }
+         }
+
+         hand();
+     </script>
+```
 ## Release note
 
 We introducing a update with token and authentification system,
@@ -130,4 +207,4 @@ The SDK GeographyX is licensed under the MIT License.
 
 ## Contact
 
-You can contact us via email at `bougsoon.studio@gmail.com`.
+You can contact us via email at `contact@blonality-studio`.
