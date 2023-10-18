@@ -193,7 +193,7 @@ Get weather information for a specific country.
              }
          }
 
-         hand();
+         main();
      </script>
 ```
 ## Release note
