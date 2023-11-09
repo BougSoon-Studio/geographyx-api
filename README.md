@@ -207,4 +207,4 @@ The SDK GeographyX is licensed under the MIT License.
 
 ## Contact
 
-You can contact us via email at `contact@blonality-studio`.
+You can contact us via email at `contact@blonality-studio.000.pe`.
